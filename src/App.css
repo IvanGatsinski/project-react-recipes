@@ -1,22 +1,309 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+body {
+  background-color: rgb(220, 255, 251);
+  padding-bottom: 4rem;
+}
+h2.heading-descr {
+  font-family: 'Merriweather', serif;
+  color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+textarea {
+  resize: none;
+  font-size: 12px
+}
+.comment-item {
+  font-size: 14px;
+  position: relative;
+}
+.comment-item:hover {
+  background-color: #accfd4;
+  user-select: none;
+}
+.comment-item__author {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 2px;
+  padding: 4px;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+  user-select: none;
+  text-transform: capitalize;
+}
+.comment-item__btn {
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+  font-size: 1.15em;
+  color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: -3px;
+  right: 33px;
+}
+.comment-item__btn:hover {
+  color: green;
+}
+.comment-item__icon--delete, .comment-item__icon--update {
+  color: rgba(0, 0, 0, 0.7);
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+  font-size: 1.4em;
+  position: absolute;
+  z-index: 1;
+  top: -1px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.comment-item__icon--delete:hover {
+  color: rgb(184, 38, 50);
+}
+a, .dropdown-menu__btn {
+  font-size: 1.1em;
+  color: rgb(0, 0, 80);
+  position: relative;
+}
+.card__footer {
+  border-top: none;
+}
+.add-comment {
+  text-align: center;
+  margin: 0.5em;
+}
+.card-author {
+  font-size: 1.1em;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(31, 119, 192, 0.85);
+  text-transform: capitalize;
+}
+.cooking-time {
+  display: inline-block;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  padding: 0.25rem .5rem;
+}
+.cooking-time__icon {
+  font-size: 1.3em;
+  color: rgb(16, 126, 1);
+}
+.btn.focus, .btn:focus {
+  box-shadow: none;
+}
+.nav-title__icon {
+  font-size: 2em;
+  color: rgb(0, 0, 80);
+}
+.menu-link__dash--animated:hover::before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  right: 50%;
+  height: 2px;
+  width: 50%;
+  background: rgb(0, 0, 80);
+  animation-name: left_dash;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.menu-link__dash--animated:hover::after {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  left: 50%;
+  height: 2px;
+  width: 50%;
+  background: rgb(0, 0, 80);
+  animation-name: right_dash;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes left_dash {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 50%;
+    }
+}
+@keyframes right_dash {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+.bg-light {
+  background-color: rgb(165, 238, 228) !important;
+  box-shadow: 0px 3px 3px 0px rgb(60, 192, 174);
+}
+a:hover {
+  text-decoration: none;
+  transition: all 0.5s;
+  color: rgb(0, 0, 80);
+}
+.super-colors {
+  background: #348bd3;
+}
+
+/* Loader styles starts here */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgb(31, 112, 187);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+/* Text Loader */
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+.loading-text {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: rgb(0, 39, 167);
+  /* font-family: 'Quattrocento Sans', sans-serif; */
+}
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(2px);
+  }
+}
+/* Loader styles ends here */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Sticky Footer starts here */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(150, 149, 149);
   color: white;
 }
+/* Sticky Footer ends here */
 
-.App-link {
-  color: #09d3ac;
+/* Overwrite the basic button min-width */
+.btn--min-width {
+  min-width: 135px;
+}
+/* Set custom width to navigation row, col */
+.nav-row {
+  width: 100%;
+}
+.nav-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Main card gallery img contaner */
+.main-gallery__card--height {
+  max-height: 175px;
+}
+/* Create custom form error */
+.form-err {
+  font-size: 14px;
+  margin-top: 6px;
+  margin-left: 3px;
+  color: rgb(238, 96, 96);
+}
+/* Navbar styles */
+.navbar {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+}
+.welcome-msg {
+  font-size: 16px;
+}
+.edit-comment--hide {
+  display: none;
 }

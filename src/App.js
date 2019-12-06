@@ -1,25 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import MainContainer from './components/MainContainer';
+import Navigation from './components/common/Navigation';
+import Footer from './components/common/Footer';
+import Home from './components/common/Home';
+import Login from './components/auth/login/Index';
+import Register from './components/auth/register/Index';
+import CreateRecipe from './components/recipes/Create';
+import ViewRecipe from './components/recipes/View';
+import EditRecipe from './components/recipes/Edit';
+import UserRecipes from './components/recipes/UserRecipes';
+import EditComment from './components/comments/Edit';
+import PrivateRoute from './components/helpers/PrivateRoute';
+import NotFound from './components/404/NotFound';
+import Provider from './providers/index';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Provider>
+        <Navigation />
+          <MainContainer>
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/logout" render={props =>
+                <Redirect to="/login" />
+              } />
+              <Route path="/register" component={Register} />
+              <Route path="/" exact component={Home} />
+              <PrivateRoute path="/recipe/create" component={CreateRecipe} />
+              <PrivateRoute path="/recipe/:id/view" component={ViewRecipe} />
+              <PrivateRoute path="/recipe/:id/edit" component={EditRecipe} />
+              <PrivateRoute path="/comment/:id/edit" component={EditComment} />
+              <PrivateRoute path="/user/:id/recipes" component={UserRecipes} />
+              <Route component={NotFound} />
+            </Switch>
+          </MainContainer>
+        <Footer />
+      </Provider>
+    </Router>
   );
 }
 
