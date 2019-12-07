@@ -101,9 +101,9 @@ const UserRecipes = () => {
             {Array.isArray(userRecipes) ? 
             (userRecipes.length > 0 ? userRecipes : <h2 className="heading-descr mt-2">You haven't any recipes yet.</h2>)
             : 
-            (<Row className="justify-content-center mt-5">
-            <Loader/>
-        </Row>)}
+            <Row className="justify-content-center mt-5">
+                <Loader/>
+            </Row>}
         </Container>
     )
 }

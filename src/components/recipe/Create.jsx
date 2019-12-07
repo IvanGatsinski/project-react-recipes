@@ -53,6 +53,15 @@ const CreateRecipe = () => {
         e.target.reset()
     }
     
+    const addIngredient = () => {   
+        setInputCount([...inputCount, { id: uuid() }]);
+    }
+    const removeIngredient = (id) => {
+        setInputCount(
+            [...inputCount].filter(input => input.id !== id)
+        );
+    }
+
     const ingredientsInputFields = () => {
 
        return inputCount.map(input => {
@@ -83,15 +92,6 @@ const CreateRecipe = () => {
             )
         })
     };
-
-    const addIngredient = () => {   
-        setInputCount([...inputCount, { id: uuid() }]);
-    }
-    const removeIngredient = (id) => {
-        setInputCount(
-            [...inputCount].filter(input => input.id !== id)
-        );
-    }
 
     return (
         <>

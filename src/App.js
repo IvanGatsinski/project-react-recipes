@@ -8,14 +8,15 @@ import Footer from './components/common/Footer';
 import Home from './components/common/Home';
 import Login from './components/auth/login/Index';
 import Register from './components/auth/register/Index';
-import CreateRecipe from './components/recipes/Create';
-import ViewRecipe from './components/recipes/View';
-import EditRecipe from './components/recipes/Edit';
-import UserRecipes from './components/recipes/UserRecipes';
+import CreateRecipe from './components/recipe/Create';
+import ViewRecipe from './components/recipe/View';
+import EditRecipe from './components/recipe/Edit';
+import UserRecipes from './components/recipe/UserRecipes';
 import EditComment from './components/comments/Edit';
 import PrivateRoute from './components/helpers/PrivateRoute';
 import NotFound from './components/404/NotFound';
 import Provider from './providers/index';
+require('dotenv').config();
 
 function App() {
 
