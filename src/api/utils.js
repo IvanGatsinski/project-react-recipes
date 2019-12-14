@@ -1,9 +1,10 @@
 import axios from 'axios'
+import env from '../env';
 
 axios.defaults.baseURL = 'https://baas.kinvey.com';
 
-const APP_KEY = 'kid_rJ7liiTuS'
-const APP_SECRET = '2468fd047e1a438f9c7f9979bcd7dfc3'
+const APP_KEY = env.APP_KEY;
+const APP_SECRET = env.APP_SECRET;
 
 const APP_CREDENTIALS = `${APP_KEY}:${APP_SECRET}`
 
