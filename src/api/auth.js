@@ -1,6 +1,5 @@
 import { post } from './utils';
 import env from '../env';
-console.log(env.APP_KEY);
 
 function authenticateUser(data) {
     let authType = data.authType;
